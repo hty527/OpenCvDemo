@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         handler = new Handler();
 
         openCvCameraView = (CameraBridgeViewBase) findViewById(R.id.javaCameraView);
-        openCvCameraView.setCameraIndex(0); //摄像头索引        -1/0：后置双摄     1：前置
+        openCvCameraView.setCameraIndex(1); //摄像头索引        -1/0：后置双摄     1：前置
         openCvCameraView.enableFpsMeter(); //显示FPS
         openCvCameraView.setCvCameraViewListener(this);
 
