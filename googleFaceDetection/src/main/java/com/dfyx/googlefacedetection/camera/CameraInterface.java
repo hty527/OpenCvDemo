@@ -8,8 +8,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.PixelFormat;
 import android.hardware.Camera;
-import android.hardware.Camera.CameraInfo;
-import android.hardware.Camera.FaceDetectionListener;
 import android.hardware.Camera.PictureCallback;
 import android.hardware.Camera.ShutterCallback;
 import android.hardware.Camera.Size;
@@ -31,7 +29,7 @@ public class CameraInterface {
     private static CameraInterface mCameraInterface;
 
     public interface CamOpenOverCallback {
-        public void cameraHasOpened();
+         void cameraHasOpened();
     }
 
     private CameraInterface() {
@@ -74,10 +72,11 @@ public class CameraInterface {
         if (mCamera != null) {
 
             mParams = mCamera.getParameters();
-            mParams.setPictureFormat(PixelFormat.JPEG);//设置拍照后存储的图片格式
+            mParams.setPictureFormat(PixelFormat.JPEG);// 设置拍照后存储的图片格式
             CamParaUtil.getInstance().printSupportPictureSize(mParams);
             CamParaUtil.getInstance().printSupportPreviewSize(mParams);
-            //设置PreviewSize和PictureSize
+
+            //设置 PreviewSize和 PictureSize
             Size pictureSize = CamParaUtil.getInstance().getPropPictureSize(mParams.getSupportedPictureSizes(), previewRate, 800);
 
             mParams.setPictureSize(pictureSize.width, pictureSize.height);
